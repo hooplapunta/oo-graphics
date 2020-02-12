@@ -1,0 +1,46 @@
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+  overflow: hidden;
+}
+
+#canvasArea {
+  width: 100%;
+  height: calc(75vh - 4px);
+  border-bottom: 4px solid #444444;
+}
+
+#drawCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+#testConsole {
+  width: 100%;
+  height: 25vh;
+  background-color: #222222;
+  /* padding: 10px 20px; */
+  overflow: hidden;
+}
+
+#testConsole_text {
+  display: flex;
+  flex-direction: column-reverse; /* keeps scroll at bottom */
+  height: 100%;
+  overflow-y: auto;
+  color: gainsboro;
+  font-family: "Roboto Mono", monospace;
+  font-size: 10pt;
+ /* line-height: 14pt; */
+  user-select: none;
+}
+
+#testConsole_text p {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.waitMessage {
+  color: #00bcd4;
+}
