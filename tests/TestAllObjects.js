@@ -20,16 +20,17 @@ class TestAllObjects extends TestHarness {
 		topGroup.addChild(new Line(70, 130, 120, 180, "blue", 10));
 
 		this.message("Icon");
-		topGroup.addChild(new Icon("jslogo.png", 10, 200));
-		topGroup.addChild(new Icon("dog.png", 80, 200));
+		// added specific sizing because the text obscures everything else
+		topGroup.addChild(new Icon("tests/jslogo.png", 10, 200, 91, 96));
+		topGroup.addChild(new Icon("tests/dog.png", 80, 200, 19, 28));
 
 		this.message("Text");
 		topGroup.addChild(new Text("going", 10, 350, "", "black", ctx));
 		topGroup.addChild(new Text("going", 70, 350, "SansSerif", "red", ctx));
 		topGroup.addChild(new Text("gone", 140, 350, "Serif", "green", ctx));
-    topGroup.addChild(new Line(10, 350, 250, 350, "black", 1));
+    	topGroup.addChild(new Line(10, 350, 250, 350, "black", 1));
     
-    this.topGraphics.redraw();
+    	this.topGraphics.redraw();
 
 		this.message("all done");
   }
