@@ -25,7 +25,7 @@ class TestLayoutGroup extends TestHarness {
 		group.addChild(objects[i]);
 	}
 
-	this.topGraphics.redraw();
+	await this.topGraphics.redraw();
     await this.waitForUser();
 
 	this.message("shuffling rectangles 10 times");
@@ -34,7 +34,7 @@ class TestLayoutGroup extends TestHarness {
 		index = this.RandomInt(nObjects);
 		let gobj = objects[index];
 		group.bringChildToFront(gobj);
-		this.topGraphics.redraw();
+		await this.topGraphics.redraw();
 		this.messageSpan(" "+index);
 		await this.sleep(1000);
 	}
@@ -47,7 +47,7 @@ class TestLayoutGroup extends TestHarness {
 		r = objects[i];
 		r.width = r.width * 2;
 		this.messageSpan(" "+r.width);
-		this.topGraphics.redraw();
+		await this.topGraphics.redraw();
 		await this.sleep(1000);
 	}
 	this.message("  all done");
