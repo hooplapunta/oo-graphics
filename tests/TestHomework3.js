@@ -29,16 +29,17 @@ class TestHomework3 extends TestHarness {
 		  redRect.setX( **New constraint = blueRect's right side ** );
 		  redRect.setY( **New constraint = blueRect's Y ** );
 		*/
-		redRect.x = new Constraint(redRect, "x", 0, function () {
-			let bb = blueRect.getBoundingBox();
-			return bb.x + bb.width;
+		redRect.x = new Constraint(redRect, "x", 0, function (a, b) {
+			// let bb = blueRect.getBoundingBox();
+			// return bb.x + bb.width;
+			return a + b;
 		}, [
 			new DependencyOn(blueRect, "x"),
 			new DependencyOn(blueRect, "width")
 		]);
 
-		redRect.y = new Constraint(redRect, "y", 0, function () {
-			return blueRect.y;
+		redRect.y = new Constraint(redRect, "y", 0, function (a) {
+			return a;
 		}, [
 			new DependencyOn(blueRect, "y")
 		]);
@@ -57,17 +58,15 @@ class TestHomework3 extends TestHarness {
 		group.addChild(greenRect);
 		await this.topGraphics.redraw();
 
-		greenRect.x = new Constraint(greenRect, "x", 0, function () {
-			let bb = redRect.getBoundingBox();
-			return bb.x + bb.width;
+		greenRect.x = new Constraint(greenRect, "x", 0, function (a, b) {
+			return a + b;
 		}, [
 			new DependencyOn(redRect, "x"),
 			new DependencyOn(redRect, "width")
 		]);
 
-		greenRect.y = new Constraint(greenRect, "y", 0, function () {
-			let bb = redRect.getBoundingBox();
-			return bb.y + bb.height;
+		greenRect.y = new Constraint(greenRect, "y", 0, function (a, b) {
+			return a + b;
 		}, [
 			new DependencyOn(redRect, "y"),
 			new DependencyOn(redRect, "height")
@@ -98,19 +97,18 @@ class TestHomework3 extends TestHarness {
 		await this.topGraphics.redraw();
 
 		let second = new OutlineRect(0, 0, 60, 160, color, 4);
-		second.x = new Constraint(second, "x", 0, function () {
-			return first.x * 2;
+		second.x = new Constraint(second, "x", 0, function (a) {
+			return a * 2;
 		}, [
 			new DependencyOn(first, "x")
 		]);
-		second.y = new Constraint(second, "y", 0, function () {
-			return first.y * 2;
+		second.y = new Constraint(second, "y", 0, function (a) {
+			return a * 2;
 		}, [
 			new DependencyOn(first, "y")
 		]);
-		second.color = new Constraint(second, "color", 0, function () {
-			return first.color.slice(0, 1) + (count3 + 6) + first.color.slice(2);
-			;
+		second.color = new Constraint(second, "color", 0, function (a) {
+			return a.slice(0, 1) + (count3 + 6) + a.slice(2);
 		}, [
 			new DependencyOn(first, "color")
 		]);
@@ -121,29 +119,29 @@ class TestHomework3 extends TestHarness {
 		await this.topGraphics.redraw();
 
 		let third = new Icon("tests/jslogoSmall.png", 20, 20);
-		third.x = new Constraint(third, "x", 0, function () {
-			return first.x + second.x;
+		third.x = new Constraint(third, "x", 0, function (a, b) {
+			return a + b;
 		}, [
 			new DependencyOn(first, "x"),
 			new DependencyOn(second, "x")
 		]);
-		third.y = new Constraint(third, "y", 0, function () {
-			return first.y + second.y;
+		third.y = new Constraint(third, "y", 0, function (a, b) {
+			return a + b;
 		}, [
 			new DependencyOn(first, "y"),
 			new DependencyOn(second, "y")
 		]);
-		third.height = new Constraint(third, "height", 0, function () {
-			return first.height + second.height;
+		third.height = new Constraint(third, "height", 0, function (a, b) {
+			return a + b;
 		}, [
 			new DependencyOn(first, "height"),
 			new DependencyOn(second, "height")
 		]);
-		third.width = new Constraint(third, "width", 0, function () {
-			return first.width + second.width;
+		third.width = new Constraint(third, "width", 0, function (a, b) {
+			return a + b;
 		}, [
 			new DependencyOn(first, "width"),
-			new DependencyOn(second, "widths")
+			new DependencyOn(second, "width")
 		]);
 
 		shapes.push(third);
@@ -152,9 +150,8 @@ class TestHomework3 extends TestHarness {
 		await this.topGraphics.redraw();
 
 		this.message("X. Attempt to make cycle by making blue.x dependent on red.x. NOTE: This will stop the testing application.");
-		blueRect.x = new Constraint(blueRect, "x", 0, function () {
-			let bb = redRect.getBoundingBox();
-			return bb.x + bb.width;
+		blueRect.x = new Constraint(blueRect, "x", 0, function (a, b) {
+			return a + b;
 		}, [
 			new DependencyOn(redRect, "x"),
 			new DependencyOn(redRect, "width")
