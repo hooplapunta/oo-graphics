@@ -10,7 +10,8 @@ const topGraphics = new TopGraphics (canvas);
 // const t1 = new TestOutlineRect(topGraphics);
 // const t1 = new TestSimpleGroup(topGraphics);
 // const t1 = new TestHomework2(topGraphics);
-const t1 = new TestHomework3(topGraphics);
+// const t1 = new TestHomework3(topGraphics);
+const t1 = new TestAllBehaviors(topGraphics);
 
 
 t1.runTest();

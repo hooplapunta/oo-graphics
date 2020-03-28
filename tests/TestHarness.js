@@ -53,14 +53,14 @@ class TestRig {
   async waitForUser() {
     this.waitMessage();
     return new Promise(accept => {
-      document.addEventListener("click", () => accept(), { once: true });
+      testConsole.addEventListener("click", () => accept(), { once: true });
     });
   }
 
   waitMessage() {
     let msg = document.createElement("p");
     msg.classList.add("waitMessage");
-    msg.innerHTML = "&nbsp;&nbsp;&nbsp;Please click to continue ...";
+    msg.innerHTML = "&nbsp;&nbsp;&nbsp;Please click console to continue ...";
     this.testConsole.prepend(msg);
   }
 
