@@ -1,5 +1,6 @@
 const canvas = document.getElementById("drawCanvas");
 const topGraphics = new TopGraphics (canvas);
+canvas.focus();
 
 /* PUT TESTING HERE */
 
@@ -11,7 +12,7 @@ const topGraphics = new TopGraphics (canvas);
 // const t1 = new TestSimpleGroup(topGraphics);
 // const t1 = new TestHomework2(topGraphics);
 // const t1 = new TestHomework3(topGraphics);
-const t1 = new TestAllBehaviors(topGraphics);
-
+// const t1 = new TestAllBehaviors(topGraphics);
+const t1 = new TestWidgets(topGraphics);
 
 t1.runTest();

@@ -19,12 +19,12 @@ class TestAllBehaviors extends TestHarness {
 
 		let r1 = new OutlineRect(20, 20, 50, 80, "black", 1);
 		let r2 = new FilledRect(80, 20, 50, 50, "black");
-		let l1 = new Line(30, 80, 50, 200, "black", 4);
-		let t1 = new Text("going", 10, 350, "20pt Monospaced", "black", ctx);
+		let l1 = new Line(30, 100, 50, 200, "black", 4);
+		let t1 = new Text("going", 10, 350, "16pt sans-serif", "black");
 		objsGroup.addChild(r1);
 		objsGroup.addChild(r2);
 		objsGroup.addChild(l1);
-		objsGroup.addChild(t1);
+		//objsGroup.addChild(t1);
 
 		r1.color = new Constraint(r1, "color", "pink", function (a, b) {
 			if (a) {
@@ -68,6 +68,15 @@ class TestAllBehaviors extends TestHarness {
 			new DependencyOn(t1, "interimSelected")
 		]);
 
+		// debug the line
+		let rx = new FilledRect(
+			t1.getBoundingBox().x, 
+			t1.getBoundingBox().y, 
+			t1.getBoundingBox().width, 
+			t1.getBoundingBox().height, "darkgrey");
+		objsGroup.addChild(rx);
+		objsGroup.addChild(t1);
+
 		this.message("0. Objects now ready.");
 		await this.topGraphics.redraw();
 		await this.waitForUser();
@@ -103,7 +112,8 @@ class TestAllBehaviors extends TestHarness {
 		objsGroup.addBehvaior(new MoveBehavior(objsGroup,
 			new BehaviorEvent("CONTROL_SHIFT_LEFT_MOUSE_DOWN"),
 			new BehaviorEvent("CONTROL_SHIFT_LEFT_MOUSE_UP"),
-			new BehaviorEvent("ESC")
+			new BehaviorEvent("ESC"),
+			true
 		));
 
 

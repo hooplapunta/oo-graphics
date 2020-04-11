@@ -7,7 +7,7 @@
     <meta name="description" content="05-830 Homework 2 Test" />
     <meta name="author" content="Brad Myers and Mary Beth Kery" />
   
-    <title>05-830 Homework 5 Test</title>
+    <title>Draw My Box!</title>
     <meta name="HW2 05-830 Test" content="05-830 Homework 2 Test" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap"
@@ -49,24 +49,17 @@
     <script src="lib/TopGraphics.js"></script>
     <script src="tests/testHarness.js"></script>
 
-<!-- only uncomment one of these at a time. DummyGraphicalObject only needed by TestTestHarness. -->
-    <!-- <script src="tests/TestTestHarness.js"></script> 
-    <script src="tests/DummyGraphicalObject.js"></script>  -->
-    <!-- needed by TestTestHarness -->
-  
-    <!-- <script src="tests/TestAllObjects.js"></script> -->
-    <!-- <script src="tests/TestOutlineRect.js"></script> -->
-    <!-- <script src="tests/TestSimpleGroup.js"></script> -->
-    <!-- <script src="tests/TestLayoutGroup.js"></script> -->
-    <!-- <script src="tests/TestHomework2.js"></script> -->
-    <!-- <script src="tests/TestHomework3.js"></script> -->
-    <!-- <script src="tests/TestAllBehaviors.js"></script> -->
-
-    <script src="tests/TestWidgets.js"></script>
+    <script src="tests/TestEditor.js"></script>
 
   <!-- Be sure to leave index.js last -->
-    <script src="index.js">
+    <script>
+        const canvas = document.getElementById("drawCanvas");
+        const topGraphics = new TopGraphics (canvas);
+        canvas.focus();
 
+        const t1 = new TestEditor(topGraphics);
+
+        t1.runTest();
     </script>
   </body>
 </html>
