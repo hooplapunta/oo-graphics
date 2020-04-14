@@ -41,7 +41,7 @@ class TestWidgets extends TestHarness {
 
         let radioPanel = new RadioPanel(["radio-one", "radio-two", "radio-three"],
             function (button, value) { test.message(button.label + ", " + value) },
-            16, 250, 800, 40);
+            16, 250, 800, 800, VERTICAL);
 
         topGroup.addChild(radioPanel);
 
